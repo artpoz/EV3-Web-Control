@@ -20,7 +20,7 @@ import lejos.robotics.EncoderMotor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
  
-public class SimpleWebServer2 {
+public class SimpleWebServer {
   public static final int PORT = 80;
   private ServerSocket ss;
   private Socket sock;
@@ -28,7 +28,7 @@ public class SimpleWebServer2 {
   private static RMIRegulatedMotor leftMotor;
   private HttpUrlSplitter spliter;
  
-  public SimpleWebServer2() throws IOException {
+  public SimpleWebServer() throws IOException {
     ss = new ServerSocket(PORT);
     spliter = new HttpUrlSplitter();
     
@@ -100,7 +100,7 @@ public class SimpleWebServer2 {
 	  leftMotor = ev3.createRegulatedMotor("B",  'L');
       rightMotor = ev3.createRegulatedMotor("C",  'L'); 
       
-      new SimpleWebServer2().run();
+      new SimpleWebServer().run();
 	  
       leftMotor.close();
  	  rightMotor.close();

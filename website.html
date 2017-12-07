@@ -1,0 +1,39 @@
+<head>
+<title>Robot Control</title>
+</head>
+<script>
+
+speed = 300;
+function showValue(newValue)
+{
+	document.getElementById("range").innerHTML=newValue;
+	this.speed = newValue;
+}
+
+
+function ex(cmd) {
+var req = new XMLHttpRequest();  
+var page = 'http://192.168.0.38/'+cmd+'?speed='+speed;   //http://192.168.1.136/
+req.open('GET', page, false); 
+req.send(null);  
+}
+</script>
+<body>
+<div align="center">
+<input type="button" value="forward" onclick="ex('forward');" />
+</div>
+<div align="center">
+<input type="button" value="left" onclick="ex('left');" />
+<input type="button" value="stop" onclick="ex('stop');" />
+<input type="button" value="right" onclick="ex('right');" />
+</div>
+<div align="center">
+<input type="button" value="backward" onclick="ex('backward');" />
+</div>
+<div align="center">
+<input type="range" min="0" max="600" value="300" step="20" onchange="showValue(this.value)" />
+<span id="range">300</span>
+</div>
+
+</body>
+</html>

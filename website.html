@@ -13,27 +13,35 @@ function showValue(newValue)
 
 function ex(cmd) {
 var req = new XMLHttpRequest();  
-var page = 'http://192.168.0.38/'+cmd+'?speed='+speed;   //http://192.168.1.136/
+var page = 'http://192.168.1.136/'+cmd+'?speed='+speed;  
 req.open('GET', page, false); 
 req.send(null);  
 }
 </script>
+<style>
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+</style>
 <body>
 <div align="center">
-<input type="button" value="forward" onclick="ex('forward');" />
+<input type="button" value="forward" onmousedown="ex('forward');" onmouseup="ex('stop');"/>
 </div>
 <div align="center">
-<input type="button" value="left" onclick="ex('left');" />
-<input type="button" value="stop" onclick="ex('stop');" />
-<input type="button" value="right" onclick="ex('right');" />
+<input type="button" value="left" onmousedown="ex('left');"  onmouseup="ex('stop');"/>
+<input type="button" value="right" onmousedown="ex('right');"  onmouseup="ex('stop');"/>
 </div>
 <div align="center">
-<input type="button" value="backward" onclick="ex('backward');" />
+<input type="button" value="backward" onmousedown="ex('backward');" onmouseup="ex('stop');"/>
 </div>
 <div align="center">
 <input type="range" min="0" max="600" value="300" step="20" onchange="showValue(this.value)" />
 <span id="range">300</span>
 </div>
-
 </body>
 </html>
